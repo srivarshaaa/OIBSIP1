@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Colorful Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+  body
+  {
+      background-color:#808080;
+  }
+  h1{
+      color:pink;
+      text-align:center;
+  }
+  
+  .calculator {
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #87CEEB;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#display {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 20px;
+  text-align: right;
+  background-color: #E2E0FC;
+  border: none;
+  border-radius: 3px;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.clear {
+  background-color: #f44336;
+  color: white;
+}
+
+.number {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.operator {
+  background-color: #2196F3;
+  color: white;
+}
+
+.equals {
+  background-color: #FF9800;
+  color: white;
+}
+</style>
+  
+</head>
+<body>
+<h1>CALULATOR </h1>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="keypad">
+      <button onclick="clearDisplay()" class="clear">C</button>
+      <button onclick="appendToDisplay('7')" class="number">7</button>
+      <button onclick="appendToDisplay('8')" class="number">8</button>
+      <button onclick="appendToDisplay('9')" class="number">9</button>
+      <button onclick="appendToDisplay('/')" class="operator">/</button>
+      <button onclick="appendToDisplay('4')" class="number">4</button>
+      <button onclick="appendToDisplay('5')" class="number">5</button>
+      <button onclick="appendToDisplay('6')" class="number">6</button>
+      <button onclick="appendToDisplay('*')" class="operator">*</button>
+      <button onclick="appendToDisplay('1')" class="number">1</button>
+      <button onclick="appendToDisplay('2')" class="number">2</button>
+      <button onclick="appendToDisplay('3')" class="number">3</button>
+      <button onclick="appendToDisplay('-')" class="operator">-</button>
+      <button onclick="appendToDisplay('0')" class="number">0</button>
+      <button onclick="appendToDisplay('.')" class="number">.</button>
+      <button onclick="calculate()" class="equals">=</button>
+      <button onclick="appendToDisplay('+')" class="operator">+</button>
+    </div>
+  </div>
+  <script >
+  function appendToDisplay(value) {
+  document.getElementById('display').value += value;
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+
+function calculate() {
+  var displayValue = document.getElementById('display').value;
+  var result = eval(displayValue);
+  document.getElementById('display').value = result;
+}
+
+  </script>
+</body>
+</html>
